@@ -32,6 +32,9 @@ import static org.hamcrest.Matchers.not;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
+
+import com.example.sharedtest.HintMatcher;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -67,7 +70,7 @@ public class HintMatchersTest {
      * {@link ActivityScenarioRule} will create and launch of the activity for you.
      */
     @Rule public ActivityScenarioRule<MainActivity> activityScenarioRule =
-        new ActivityScenarioRule<MainActivity>(MainActivity.class);
+            new ActivityScenarioRule<MainActivity>(MainActivity.class);
 
     @Before
     public void initValidStrings() {

@@ -9,6 +9,7 @@ android {
         targetSdkVersion 32
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,14 +25,14 @@ android {
     productFlavors {
     }
     // Configure the `test` and `android` variants to share the same test source
-    sourceSets {
-        test {
-            java.srcDir 'src/sharedTest/java'
-        }
-        androidTest {
-            java.srcDir 'src/sharedTest/java'
-        }
-    }
+//    sourceSets {
+//        test {
+//            java.srcDir 'src/sharedTest/java'
+//        }
+//        androidTest {
+//            java.srcDir 'src/sharedTest/java'
+//        }
+//    }
     testOptions {
         unitTests {
             includeAndroidResources = true
@@ -66,5 +67,10 @@ dependencies {
     testImplementation 'androidx.test:core:' + rootProject.coreVersion;
     testImplementation 'androidx.test.ext:junit:' + rootProject.extJUnitVersion;
     testImplementation 'androidx.test.espresso:espresso-core:' + rootProject.espressoVersion;
-    testImplementation 'org.robolectric:robolectric:' + rootProject.robolectricVersion;
+    testImplementation 'org.robolectric:robolectric:' + rootProject.robolectricVersion
+//    androidTestImplementation project(path: ':app');
+    testImplementation project(":sharedTest")
+    androidTestImplementation project(":sharedTest")
+
+    implementation "androidx.multidex:multidex:2.0.1"
 }

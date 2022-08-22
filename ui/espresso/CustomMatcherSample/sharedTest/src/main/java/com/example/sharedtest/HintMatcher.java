@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-package com.example.android.testing.espresso.CustomMatcherSample;
-
-import static com.google.common.base.Preconditions.checkNotNull;
-import static org.hamcrest.Matchers.is;
+package com.example.sharedtest;
 
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.test.espresso.core.internal.deps.dagger.internal.Preconditions;
 import androidx.test.espresso.matcher.BoundedMatcher;
+
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
 
 /**
  * A custom matcher that checks the hint property of an {@link EditText}. It
@@ -31,12 +32,12 @@ import org.hamcrest.Matcher;
  */
 public class HintMatcher {
 
-    static Matcher<View> withHint(final String substring) {
-        return withHint(is(substring));
+    public static Matcher<View> withHint(final String substring) {
+        return withHint(Matchers.is(substring));
     }
 
-    static Matcher<View> withHint(final Matcher<String> stringMatcher) {
-        checkNotNull(stringMatcher);
+    public static Matcher<View> withHint(final Matcher<String> stringMatcher) {
+        Preconditions.checkNotNull(stringMatcher);
         return new BoundedMatcher<View, EditText>(EditText.class) {
 
             @Override

@@ -3,6 +3,7 @@
           package="com.example.android.testing.espresso.CustomMatcherSample">
 
     <application
+            android:name="androidx.multidex.MultiDexApplication"
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
